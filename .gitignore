@@ -29,3 +29,14 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# SQLite database files
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+
+# Optional: SQLite journal or WAL files
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
