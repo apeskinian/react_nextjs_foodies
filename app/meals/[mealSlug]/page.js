@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation';
 
 export default function MealDetailsPage({ params }) {
+    const bucket = `https://${process.env.AWS_S3_BUCKET}.s3.amazonaws.com`
     const meal = getMeal(params.mealSlug);
 
     if (!meal) {
@@ -16,7 +17,11 @@ export default function MealDetailsPage({ params }) {
         <>
             <header className={classes.header}>
                 <div className={classes.image}>
-                    <Image src={meal.image} alt={meal.title} fill />
+                    <Image
+                        src={`${bucket}/${meal.image}`}
+                        alt={meal.title}
+                        fill
+                    />
                 </div>
                 <div className={classes.headerText}>
                     <h1>{meal.title}</h1>
